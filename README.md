@@ -1,6 +1,6 @@
 # Notes
 - The code will find the first product containing "UPSELL" in the title, and display as the upsell product.
-- You musy have enabled USA (English, USD), Canada (English and/or French, CAD), and Germany (German, EUR) in the Market, and enable Shopify Payments to get localized prices. 
+- You must have enabled USA (English, USD), Canada (English and/or French, CAD), and Germany (German, EUR) in the Market, and enable Shopify Payments to get localized prices. 
 - Supported currency - EUR, CAD and USD (default)
 - Supported UI localization - German, French and English (default)
 
