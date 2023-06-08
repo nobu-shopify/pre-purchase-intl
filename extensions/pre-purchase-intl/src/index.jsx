@@ -37,7 +37,6 @@ function App() {
   // Get checkout currency & language
   const currency = useCurrency();
   const language = useLanguage();
-  console.log("language", language);
 
   // Set appropriate country code for the Storefront API query
   // Below supports:
@@ -49,7 +48,6 @@ function App() {
     ( (language.isoCode === "fr-FR") ? "FR" : "DE") 
     : (currency.isoCode === "CAD") ? "CA"
     : "US";
-    console.log("productCountry", productCountry);
 
   // On initial load, fetch the product variants
   useEffect(() => {
