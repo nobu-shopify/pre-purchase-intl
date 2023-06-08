@@ -15,6 +15,7 @@ import {
   useApplyCartLinesChange,
   useExtensionApi,
   useCurrency,
+  useLanguage,
 } from "@shopify/checkout-ui-extensions-react";
 
 // Set up the entry point for the extension
@@ -33,11 +34,22 @@ function App() {
   const [adding, setAdding] = useState(false);
   const [showError, setShowError] = useState(false);
 
-  // TEST
+  // Get checkout currency & language
   const currency = useCurrency();
-  const productCountry = (currency.isoCode === "EUR") ? "DE" 
+  const language = useLanguage();
+  console.log("language", language);
+
+  // Set appropriate country code for the Storefront API query
+  // Below supports:
+  // - EUR: Germany
+  // - EUR: France
+  // - CAD: Canada
+  // - USD: United States
+  const productCountry = (currency.isoCode === "EUR") ? 
+    ( (language.isoCode === "fr-FR") ? "FR" : "DE") 
     : (currency.isoCode === "CAD") ? "CA"
     : "US";
+    console.log("productCountry", productCountry);
 
   // On initial load, fetch the product variants
   useEffect(() => {
